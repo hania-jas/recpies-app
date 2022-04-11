@@ -1,0 +1,89 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks"
+    ],
+    "rules": {
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+        "ts": "never",
+        "tsx": "never"
+        }
+      ],
+      "import/no-extraneous-dependencies": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+      "no-shadow": "off",
+      "@typescript-eslint/no-shadow": ["error"],
+      "max-len": ["error", { "code": 140, "tabWidth": 2 }],
+      "react-hooks/rules-of-hooks": "error",
+      "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+      "react-hooks/exhaustive-deps": "warn",
+      "import/prefer-default-export": "off",
+      "react/prop-types": "off",
+      "eol-last": ["error", "always"],
+      "@typescript-eslint/typedef": [
+        "error",
+        {
+          "parameter": true,
+          "arrowParameter": true,
+          "variableDeclaration": true,
+          "propertyDeclaration": true,
+          "variableDeclarationIgnoreFunction": true
+        }
+      ],
+      "react/function-component-definition": [
+        2,
+        {
+          "namedComponents": "arrow-function",
+          "unnamedComponents": "arrow-function"
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+      "typescript": {}
+      }
+    },
+    "overrides": [
+      {
+        "files": [
+          "./src/**/*.styled.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/typedef": [
+            "error",
+            {
+              "parameter": true,
+              "arrowParameter": true,
+              "variableDeclaration": false,
+              "propertyDeclaration": true,
+              "variableDeclarationIgnoreFunction": true
+            }
+          ]
+        }
+      }
+    ]
+}

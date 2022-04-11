@@ -1,0 +1,14 @@
+{
+  "app": {
+    "common": {
+      "title": "Recipie App"
+    },
+    "views": {
+      "home": {
+        "signIn": "Zaloguj się",
+        "register": "Zarejestruj się",
+        "header": " Twój przewodnik po przepisach"
+      }
+    }
+  }
+}

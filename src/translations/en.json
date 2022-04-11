@@ -1,0 +1,14 @@
+{
+  "app": {
+    "common": {
+      "title": "Recipie App"
+    },
+    "views": {
+      "home": {
+        "signIn": "Sign In",
+        "register": "Register",
+        "header": "Your everyday recipe guide"
+      }
+    }
+  }
+}
