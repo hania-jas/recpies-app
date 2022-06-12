@@ -1,11 +1,12 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 
 import { Color } from '../../enums/color.enum';
+import { StyledComponent } from '../../models';
 
 import { ButtonType } from './button.enums';
 import { StyledButtonProps } from './button.types';
 
-export const TextContainer = styled.div`
+export const TextContainer: StyledComponent<'div'> = styled.div`
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -36,7 +37,7 @@ export const ButtonStyles: {
   `,
 };
 
-export const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton: StyledComponent<'button', StyledButtonProps> = styled.button<StyledButtonProps>`
   outline: none;
   border: none;
   padding: 0;
