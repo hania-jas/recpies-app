@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Button } from '../../components/button/button.component';
 import { Color } from '../../enums';
 import Background from './images/background.png';
+import { StyledComponent } from '../../models';
 
-export const Container = styled.div`
+export const Container: StyledComponent<'div'> = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: ${`url(${Background})`};
@@ -12,19 +12,19 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const InnerContainer = styled.div`
+export const InnerContainer: StyledComponent<'div'> = styled.div`
   width: 100%;
   padding-left: 80px;
   max-width: 640px;
 `;
 
-export const AppTitle = styled.div`
+export const AppTitle: StyledComponent<'div'> = styled.div`
   font-size: 40px;
   font-family: Monopola;
   color: ${Color.Coral};
 `;
 
-export const Header = styled.div`
+export const Header: StyledComponent<'div'> = styled.div`
   font-size: 72px;
   font-family: Worldwide;
   text-transform: capitalize;
@@ -33,18 +33,7 @@ export const Header = styled.div`
   margin-bottom: 20px;
 `;
 
-export const StyledButton = styled(Button)``;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  width: 100%;
-
-  ${StyledButton} + ${StyledButton} {
-    margin-left: 10px;
-  }
-`;
-
-export const ChangeLanguageButton = styled.button`
+export const ChangeLanguageButton: StyledComponent<'button'> = styled.button`
   border: none;
   width: 50px;
   height: 50px;

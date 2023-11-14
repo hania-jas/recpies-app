@@ -1,11 +1,12 @@
 import { MouseEventHandler } from 'react';
-import { ButtonType } from './button.enums';
+import { ButtonType } from '../../enums';
 
 export interface ButtonProps {
   text: string;
   onClick: MouseEventHandler | (() => void);
   className?: string;
-  type?: ButtonType;
+  buttonType?: ButtonType;
+  type?: 'button' | 'submit';
 }
 
 export interface StyledButtonProps {
