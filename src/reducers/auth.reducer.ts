@@ -6,6 +6,8 @@ export const authReducer = (state: AuthContextState, action: AuthReducerActions)
   switch (action.type) {
     case AuthReducerAction.SignIn:
       return { ...state, ...action.payload };
+    case AuthReducerAction.SignOut:
+      return { token: null, userData: null };
     default:
       return state;
   }

@@ -39,6 +39,7 @@
       "react/jsx-props-no-spreading": "off",
       "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
       "no-shadow": "off",
+      "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-shadow": ["error"],
       "max-len": ["error", { "code": 140, "tabWidth": 2 }],
       "react-hooks/rules-of-hooks": "error",

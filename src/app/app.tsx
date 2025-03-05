@@ -8,7 +8,7 @@ import { AuthContextData, AuthContextState } from '../models';
 import { authReducer } from '../reducers';
 import { AuthContext } from '../contexts';
 import { api } from '../api/api';
-import { ProtectedRoute } from '../components';
+import { AppWrapper, ProtectedRoute } from '../components';
 import { HomeView, NotFoundView, SignInView } from '../views';
 
 const App: React.FC = (): JSX.Element => {
@@ -40,18 +40,20 @@ const App: React.FC = (): JSX.Element => {
   return (
     <BrowserRouter>
       <AuthContext.Provider value={authContextValue}>
-        <GlobalStyle />
-        <Routes>
-          <Route
-            path={RoutingPath.Home}
-            element={<ProtectedRoute><HomeView /></ProtectedRoute>}
-          />
-          <Route
-            path={RoutingPath.SignIn}
-            element={<ProtectedRoute><SignInView /></ProtectedRoute>}
-          />
-          <Route path="*" element={<NotFoundView />} />
-        </Routes>
+        <AppWrapper>
+          <GlobalStyle />
+          <Routes>
+            <Route
+              path={RoutingPath.Home}
+              element={<ProtectedRoute><HomeView /></ProtectedRoute>}
+            />
+            <Route
+              path={RoutingPath.SignIn}
+              element={<ProtectedRoute><SignInView /></ProtectedRoute>}
+            />
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </AppWrapper>
       </AuthContext.Provider>
     </BrowserRouter>
   );

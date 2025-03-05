@@ -76,7 +76,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
       />
       {type === 'password' && (
         <TogglePasswordType onClick={togglePasswordVisibility}>
-          {passwordVisible ? t(t('app.components.input.hide')) : t('app.components.input.show')}
+          {passwordVisible ? t('app.components.input.hide') : t('app.components.input.show')}
         </TogglePasswordType>
       )}
     </Container>

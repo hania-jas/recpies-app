@@ -1,11 +1,13 @@
 {
   "app": {
     "common": {
-      "title": "Recipie App"
+      "title": "Recipie App",
+      "signIn": "Zaloguj się",
+      "password": "Hasło",
+       "email": "Email"
     },
     "views": {
       "home": {
-        "signIn": "Zaloguj się",
         "register": "Zarejestruj się",
         "header": " Twój przewodnik po przepisach"
       }
