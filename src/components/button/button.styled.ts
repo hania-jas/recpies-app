@@ -3,19 +3,18 @@ import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { Color } from '../../enums/color.enum';
 import { StyledComponent } from '../../models';
 
-import { ButtonType } from './button.enums';
 import { StyledButtonProps } from './button.types';
+import { ButtonType, FontWeight } from '../../enums';
 
 export const TextContainer: StyledComponent<'div'> = styled.div`
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  transition: 0.2s linear;
   padding: 15px 30px;
   font-size: 20px;
   line-height: 24px;
-  font-weight: 500;
+  font-weight: ${FontWeight.LightBold};
 `;
 
 export const ButtonStyles: {

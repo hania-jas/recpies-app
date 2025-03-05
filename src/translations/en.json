@@ -1,11 +1,13 @@
 {
   "app": {
     "common": {
-      "title": "Recipie App"
+      "title": "Recipie App",
+      "signIn": "Sign In",
+      "password": "Password",
+      "email": "Email"
     },
     "views": {
       "home": {
-        "signIn": "Sign In",
         "register": "Register",
         "header": "Your everyday recipe guide"
       }

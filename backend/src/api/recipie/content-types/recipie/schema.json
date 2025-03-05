@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipies",
+  "info": {
+    "singularName": "recipie",
+    "pluralName": "recipies",
+    "displayName": "Recipie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "breakfast",
+        "lunch",
+        "dessert",
+        "dinner"
+      ]
+    }
+  }
+}
