@@ -10,6 +10,15 @@
       "home": {
         "register": "Register",
         "header": "Your everyday recipe guide"
+      },
+      "signIn": {
+         "header": "Sign in"
+      }
+    },
+    "components": {
+      "input": {
+        "hide": "hide",
+        "show": "show"
       }
     }
   }
