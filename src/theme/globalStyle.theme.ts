@@ -20,7 +20,7 @@ export const GlobalStyle: GlobalStyleComponent<object, DefaultTheme> = createGlo
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Lato', sans-serif;
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
   }
 

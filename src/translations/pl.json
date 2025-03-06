@@ -11,6 +11,16 @@
         "register": "Zarejestruj się",
         "header": " Twój przewodnik po przepisach"
       }
+      ,
+      "signIn": {
+         "header": "Zaloguj się"
+      }
+    },
+    "components": {
+      "input": {
+        "hide": "pokaż",
+        "show": "ukryj"
+      }
     }
   }
 }
