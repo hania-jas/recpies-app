@@ -1,4 +1,5 @@
 export * from './internal';
+export { Breakpoint } from './breakpoint.enum';
 export { RoutingPath } from './routingPath.enum';
 export { ButtonType } from './buttonType.enum';
 export { Color } from './color.enum';
