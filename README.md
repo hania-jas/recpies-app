@@ -1,6 +1,8 @@
 ##  Recipies App
 Welcome to the Recipe App repository! This application is designed to help you discover and manage your favorite recipes. Below are the steps to get the project up and running on your local machine.
 
+**Note:** Be aware that this project is still in development
+
 # React + TypeScript + Vite
 
 ## Prerequisites
