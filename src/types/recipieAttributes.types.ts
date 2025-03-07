@@ -8,4 +8,5 @@ export interface RecipieAttributes {
   image: string;
   publishedAt: string;
   updatedAt: string;
+  ingredients: string;
 }

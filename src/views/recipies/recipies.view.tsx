@@ -21,7 +21,8 @@ export const RecipiesView: React.FC = (): React.JSX.Element => {
         <Recipie
           data={{
             title: item.attributes.title,
-            image: `${appConfig.api}${item.attributes.image.data.attributes.url}`
+            image: `${appConfig.api}${item.attributes.image.data.attributes.url}`,
+            ingredients: item.attributes.ingredients,
           }}
           key={item.id}
         />
