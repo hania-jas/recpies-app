@@ -66,13 +66,13 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
         </InputLabel>
       )}
       <BaseInput
+        $withPasswordButton={type === 'password'}
         id={label}
         name={label}
-        value={inputValue}
-        onChange={onChangeAction}
         onBlur={onBlurAction}
+        onChange={onChangeAction}
         type={passwordVisible ? 'text' : type}
-        $withPasswordButton={type === 'password'}
+        value={inputValue}
       />
       {type === 'password' && (
         <TogglePasswordType onClick={togglePasswordVisibility}>

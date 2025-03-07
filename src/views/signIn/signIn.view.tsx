@@ -9,10 +9,10 @@ import { useAuth, useFormik } from '../../hooks';
 import { UseAuth, UseFormik } from '../../types';
 import { LoginModel, UserWithToken } from '../../models';
 import { useSignInValidation } from './signIn.hooks';
-import { loginRequest } from '../../api/requests';
 import { RoutingPath } from '../../enums';
+import { loginRequest } from '../../api';
 
-export const SignInView: React.FC = (): JSX.Element => {
+export const SignInView: React.FC = (): React.JSX.Element => {
   const { t } = useTranslation();
   const { isFormSubmitted, setIsFormSubmitted }: UseFormik = useFormik();
   const SignInFormValidationSchema: Yup.Schema<LoginModel> = useSignInValidation();
@@ -36,29 +36,29 @@ export const SignInView: React.FC = (): JSX.Element => {
         <Formik
           initialValues={{ identifier: '', password: '' }}
           onSubmit={loginAction}
-          validationSchema={SignInFormValidationSchema}
-          validateOnChange={isFormSubmitted}
           validateOnBlur={isFormSubmitted}
+          validateOnChange={isFormSubmitted}
+          validationSchema={SignInFormValidationSchema}
         >
-          {({ handleSubmit, setFieldValue, errors }: FormikProps<LoginModel>): JSX.Element => (
+          {({ handleSubmit, setFieldValue, errors }: FormikProps<LoginModel>): React.JSX.Element => (
             <Form onSubmit={handleSubmit}>
               <StyledInput
-                label={t('app.common.email')}
-                onChange={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('identifier', value)}
-                onBlur={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('identifier', value)}
                 infoMessage={errors.identifier || ''}
+                label={t('app.common.email')}
+                onBlur={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('identifier', value)}
+                onChange={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('identifier', value)}
               />
               <StyledInput
-                label={t('app.common.password')}
-                type="password"
-                onChange={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('password', value)}
-                onBlur={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('password', value)}
                 infoMessage={errors.password || ''}
+                label={t('app.common.password')}
+                onBlur={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('password', value)}
+                onChange={(value: string): Promise<void | FormikErrors<LoginModel>> => setFieldValue('password', value)}
+                type="password"
               />
               <StyledButton
+                onClick={setIsFormSubmitted}
                 text={t('app.common.signIn')}
                 type="submit"
-                onClick={setIsFormSubmitted}
               />
             </Form>
           )}

@@ -15,8 +15,8 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps): JSX.Element =
 
   return (
     <StyledButton
-      className={className}
       buttonType={buttonType}
+      className={className}
       onClick={onClick}
       type={type}
     >

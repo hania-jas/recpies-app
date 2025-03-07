@@ -1,6 +1,7 @@
-import { createGlobalStyle, DefaultTheme, GlobalStyleComponent } from 'styled-components';
+import { NamedExoticComponent } from 'react';
+import { createGlobalStyle, ExecutionProps } from 'styled-components';
 
-export const GlobalStyle: GlobalStyleComponent<object, DefaultTheme> = createGlobalStyle`
+export const GlobalStyle: NamedExoticComponent<ExecutionProps & object> = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,

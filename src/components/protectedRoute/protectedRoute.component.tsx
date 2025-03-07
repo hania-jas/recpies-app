@@ -6,7 +6,7 @@ import { UseAuth } from '../../types';
 import { RoutingPath } from '../../enums';
 import { ProtectedRouteProps } from './protectedRoute.types';
 
-export const ProtectedRoute: React.FC<ProtectedRouteProps> = (props: ProtectedRouteProps): JSX.Element => {
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = (props: ProtectedRouteProps): React.JSX.Element => {
   const { children }: ProtectedRouteProps = props;
   const { token }: UseAuth = useAuth();
   const location: Location = useLocation();
@@ -18,12 +18,12 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = (props: ProtectedRo
   );
 
   if (!token && location.pathname !== RoutingPath.SignIn) {
-    return <Navigate to={RoutingPath.SignIn} replace />;
+    return <Navigate replace to={RoutingPath.SignIn} />;
   }
 
   if (token && routesUnavailableAfterSignIn.includes(location.pathname as RoutingPath)) {
     return (
-      <Navigate to={RoutingPath.Home} replace />
+      <Navigate replace to={RoutingPath.Home} />
     );
   }
 
