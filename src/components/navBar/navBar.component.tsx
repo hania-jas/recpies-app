@@ -7,7 +7,7 @@ import { Color, RoutingPath } from '../../enums';
 import { UseAuth } from '../../types';
 import { useAuth } from '../../hooks';
 
-export const NavBar: React.FC<NavBarProps> = (props: NavBarProps): JSX.Element => {
+export const NavBar: React.FC<NavBarProps> = (props: NavBarProps): React.JSX.Element => {
   const { className }: NavBarProps = props;
   const { isUserLoggedIn, signOut }: UseAuth = useAuth();
   const navigate: NavigateFunction = useNavigate();
@@ -15,12 +15,12 @@ export const NavBar: React.FC<NavBarProps> = (props: NavBarProps): JSX.Element =
   return (
     <Container className={className}>
       {/* TODO: add context menu for user icon */}
-      <IconButton onClick={(): void => navigate(!isUserLoggedIn ? RoutingPath.SignIn : RoutingPath.Home)}>
-        <CgProfile size={25} color={Color.Coral} />
+      <IconButton onClick={(): void | Promise<void> => navigate(!isUserLoggedIn ? RoutingPath.SignIn : RoutingPath.Home)}>
+        <CgProfile color={Color.Coral} size={25} />
       </IconButton>
       {!!isUserLoggedIn && (
         <IconButton onClick={signOut}>
-          <CgLogOut size={25} color={Color.Coral} />
+          <CgLogOut color={Color.Coral} size={25} />
         </IconButton>
       )}
     </Container>

@@ -9,7 +9,7 @@ import {
   InnerContainer,
 } from './home.styled';
 
-export const HomeView: React.FC = (): JSX.Element => {
+export const HomeView: React.FC = (): React.JSX.Element => {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState<string>('en');
 

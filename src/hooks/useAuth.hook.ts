@@ -1,14 +1,12 @@
 import { useContext, useMemo } from 'react';
 
-import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { AuthReducerAction, LocalStorageKey, RoutingPath } from '../enums';
+import { AuthReducerAction, LocalStorageKey } from '../enums';
 import { UseAuth, UseLocalStorage } from '../types';
 import { useLocalStorage } from './useLocalStorage.hook';
 import { AuthContextData, AuthContextState, User } from '../models';
 import { AuthContext } from '../contexts';
 
 export const useAuth: () => UseAuth = (): UseAuth => {
-  const navigate: NavigateFunction = useNavigate();
   const [state, dispatch]: AuthContextData = useContext(AuthContext);
   const [_, storeAuthData]: UseLocalStorage<AuthContextState | null> = useLocalStorage<AuthContextState | null>(
     LocalStorageKey.AuthData, null,
