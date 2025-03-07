@@ -9,9 +9,19 @@ import { authReducer } from '../reducers';
 import { AuthContext } from '../contexts';
 import { api } from '../api/api';
 import { AppWrapper, ProtectedRoute } from '../components';
-import { HomeView, NotFoundView, SignInView } from '../views';
+import { HomeView, NotFoundView, RecipiesView, SignInView } from '../views';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const App: React.FC = (): JSX.Element => {
+const queryClient: QueryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    }
+  },
+});
+
+const App: React.FC = (): React.JSX.Element => {
   const [authData, storeAuthData]: UseLocalStorage<AuthContextState> = useLocalStorage<AuthContextState>(
     LocalStorageKey.AuthData, { userData: null, token: null },
   );
@@ -38,24 +48,30 @@ const App: React.FC = (): JSX.Element => {
   const authContextValue: AuthContextData = useMemo((): AuthContextData => [authState, authDispatch], [authState]);
 
   return (
-    <BrowserRouter>
-      <AuthContext.Provider value={authContextValue}>
-        <AppWrapper>
-          <GlobalStyle />
-          <Routes>
-            <Route
-              path={RoutingPath.Home}
-              element={<ProtectedRoute><HomeView /></ProtectedRoute>}
-            />
-            <Route
-              path={RoutingPath.SignIn}
-              element={<ProtectedRoute><SignInView /></ProtectedRoute>}
-            />
-            <Route path="*" element={<NotFoundView />} />
-          </Routes>
-        </AppWrapper>
-      </AuthContext.Provider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AuthContext.Provider value={authContextValue}>
+          <AppWrapper>
+            <GlobalStyle />
+            <Routes>
+              <Route
+                element={<ProtectedRoute><HomeView /></ProtectedRoute>}
+                path={RoutingPath.Home}
+              />
+              <Route
+                element={<ProtectedRoute><SignInView /></ProtectedRoute>}
+                path={RoutingPath.SignIn}
+              />
+              <Route
+                element={<ProtectedRoute><RecipiesView /></ProtectedRoute>}
+                path={RoutingPath.Recipies}
+              />
+              <Route element={<NotFoundView />} path="*" />
+            </Routes>
+          </AppWrapper>
+        </AuthContext.Provider>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 

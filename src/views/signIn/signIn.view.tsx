@@ -22,10 +22,10 @@ export const SignInView: React.FC = (): React.JSX.Element => {
 
   const mutation: UseMutationResult<UserWithToken, Error, LoginModel> = useMutation({
     mutationFn: (data: LoginModel) => loginRequest(data),
-    onError: () => {
+    onError: () => 
       // add error handling!
-      (): void => undefined
-    },
+      undefined
+    ,
     onSuccess: (response: UserWithToken) => {
       signIn(response.user, response.jwt);
       navigate(RoutingPath.Home);

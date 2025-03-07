@@ -5,7 +5,7 @@ import { ApiError, ApiReject, ApiResolve, LoginModel, UserWithToken } from '../.
 
 export const loginRequest: (data: LoginModel) => Promise<UserWithToken> = (data: LoginModel): Promise<UserWithToken> => new Promise(
   (resolve: ApiResolve<UserWithToken>, reject: ApiReject<ApiError>): Promise<void> => (
-    api.post('/auth/local', data).then(
+    api.post('/api/auth/local', data).then(
       (response: AxiosResponse<UserWithToken>): void => { resolve(response?.data); },
     ).catch((error: AxiosResponse<ApiError>): void => reject(error))
   ),

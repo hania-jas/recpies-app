@@ -4,7 +4,7 @@ import { StyledButton, TextContainer } from './button.styled';
 import { ButtonProps } from './button.types';
 import { ButtonType } from '../../enums';
 
-export const Button: React.FC<ButtonProps> = (props: ButtonProps): JSX.Element => {
+export const Button: React.FC<ButtonProps> = (props: ButtonProps): React.JSX.Element => {
   const {
     className,
     onClick,
