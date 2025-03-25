@@ -3,17 +3,24 @@ import React from 'react';
 import { Container } from './recipies.styled';
 import { getRecipiesList } from '../../api';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { CommonListData, Recipie as RecipieType } from '../../models';
+import { CommonAttributes, CommonListData, RecipieAttributes, Recipie as RecipieType } from '../../models';
 import { QueryKey } from '../../enums';
 import { Recipie } from '../../components';
 import { appConfig } from '../../appConfig';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 export const RecipiesView: React.FC = (): React.JSX.Element => {
-  const { data }: UseQueryResult<RecipieType[]> = useQuery({
+  const navigate: NavigateFunction = useNavigate();
+
+  const { data }: UseQueryResult<CommonAttributes<RecipieAttributes>[]> = useQuery({
     queryKey: [QueryKey.Recipies],
-    queryFn: (): Promise<CommonListData<RecipieType[]>> => getRecipiesList(),
-    select: (data: CommonListData<RecipieType[]>): RecipieType[] => data.data
+    queryFn: (): Promise<CommonListData<CommonAttributes<RecipieAttributes>[]>> => getRecipiesList(),
+    select: (data: CommonListData<CommonAttributes<RecipieAttributes>[]>): CommonAttributes<RecipieAttributes>[] => data.data
   });
+
+  const onRecipieClick: (id: number) => void = (id: number): void => {
+    navigate(`/recipies/${id}`);
+  };
 
   return (
     <Container>
@@ -25,6 +32,7 @@ export const RecipiesView: React.FC = (): React.JSX.Element => {
             ingredients: item.attributes.ingredients,
           }}
           key={item.id}
+          onClick={(): void => onRecipieClick(item.id)}
         />
       ))}
     </Container>

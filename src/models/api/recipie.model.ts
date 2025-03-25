@@ -1,4 +1,4 @@
-import { RecipieAttributes } from '../../types';
+import { RecipieAttributes } from './recipieAttributes.model';
 
 export interface Recipie {
   id: number;

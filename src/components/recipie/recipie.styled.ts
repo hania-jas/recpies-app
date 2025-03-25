@@ -10,6 +10,7 @@ export const Container: StyledComponent<'div'> = styled.div`
   max-height: 350px;
   border: 1px solid ${Color.Gray};
   border-radius: 6px;
+  cursor: pointer;
 `;
 
 export const ImgContainer: StyledComponent<'div'> = styled.div`

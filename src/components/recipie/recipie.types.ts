@@ -1,6 +1,8 @@
-import { RecipieAttributes } from '../../types';
+import { RecipieItem } from '../../types';
+
 
 export interface RecipieProps {
-  data: RecipieAttributes;
+  data: RecipieItem;
+  onClick: () => void;
   className?: string;
 }

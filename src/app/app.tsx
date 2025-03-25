@@ -9,7 +9,7 @@ import { authReducer } from '../reducers';
 import { AuthContext } from '../contexts';
 import { api } from '../api/api';
 import { AppWrapper, ProtectedRoute } from '../components';
-import { HomeView, NotFoundView, RecipiesView, SignInView } from '../views';
+import { HomeView, NotFoundView, RecipiesView, RecipieView, SignInView } from '../views';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient: QueryClient = new QueryClient({
@@ -65,6 +65,10 @@ const App: React.FC = (): React.JSX.Element => {
               <Route
                 element={<ProtectedRoute><RecipiesView /></ProtectedRoute>}
                 path={RoutingPath.Recipies}
+              />
+              <Route
+                element={<ProtectedRoute><RecipieView /></ProtectedRoute>}
+                path={RoutingPath.Recipie}
               />
               <Route element={<NotFoundView />} path="*" />
             </Routes>

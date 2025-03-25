@@ -5,10 +5,10 @@ import { RecipieProps } from './recipie.types';
 import DividerImg from './images/divider.png';
 
 export const Recipie: React.FC<RecipieProps> = (props: RecipieProps): React.JSX.Element => {
-  const { className, data }: RecipieProps = props;
+  const { className, data, onClick }: RecipieProps = props;
 
   return (
-    <Container className={className}>
+    <Container className={className} onClick={onClick}>
       <ImgContainer>
         <Img src={data.image} />
       </ImgContainer>
